@@ -1,6 +1,4 @@
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.io.*;
 import java.util.Scanner;
 
 public class fit {
@@ -17,6 +15,14 @@ public class fit {
             System.out.println("No existe el archivo");
             e.printStackTrace();
         }
+    }
+
+    public static void actualizar_fit() throws IOException {
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter("user.txt"))) {
+        bw.write(name);
+        bw.write(age);
+        } catch (IOException e) {
+        System.out.println("No existe el archivo");}
     }
 
     public static String getName() {
