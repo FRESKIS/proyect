@@ -2,14 +2,14 @@ import java.io.*;
 import java.util.Scanner;
 
 public class fit {
-    private static String name;
-    private static int age;
+    private String name;
+    private int age;
 
-    static {
+    public void initFit(){
         File f = new File("user.txt");
 
         try (Scanner input = new Scanner(f)) {
-            name = input.nextLine();
+            this.name = input.nextLine();
             age = input.nextInt();
         } catch (FileNotFoundException e) {
             System.out.println("No existe el archivo");
@@ -17,21 +17,22 @@ public class fit {
         }
     }
 
-    public static void actualizar_fit() throws IOException {
+    public void actualizar_fit() throws IOException {
         try (BufferedWriter bw = new BufferedWriter(new FileWriter("user.txt"))) {
-        bw.write(name);
-        bw.write(age);
+            bw.write(name);
+            bw.newLine();
+            bw.write(String.valueOf(age));
         } catch (IOException e) {
         System.out.println("No existe el archivo");}
     }
 
-    public static String getName() {
+    public String getName() {
         return name;
     }
-    public static void setName(String name) {
-        name = name;
+    public void setName(String name) {
+        this.name = name;
     }
-    public static int getAge() { return(age);}
-    public static void setAge(int age) { age = age; }
+    public int getAge() { return(age);}
+    public void setAge(int age) { this.age = age; }
 
 }

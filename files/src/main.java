@@ -10,33 +10,44 @@ public class main {
         String s;
         int a;
 
+        fit f = new fit();
+        f.initFit();
+
         Scanner input = new Scanner(System.in);
 
-        while (inp != 5) {
+        while (inp != 6) {
 
-            System.out.println("1. Leer nombre \n 2. Leer edad \n 3. Escribir nombre \n 4. Escribir edad \n 5. Salir");
+            s = "";
+            a = -1;
+
+            System.out.println("1. Leer nombre \n 2. Leer edad \n 3. Escribir nombre \n 4. Escribir edad \n 5. sumar edad \n 6. Salir");
             inp = input.nextInt();
 
             switch (inp) {
                 case 1:
-                    System.out.println(fit.getName());
+                    System.out.println(f.getName());
                     break;
                 case 2:
-                    System.out.println(fit.getAge());
+                    System.out.println(f.getAge());
                     break;
                 case 3:
                     System.out.println("Escribir nombre: ");
-                    s = input.nextLine();
-                    fit.setName(s);
+                    while (s.equals("")) {
+                        s = input.nextLine();
+                    }
+                    f.setName(s);
                     break;
                 case 4:
                     System.out.println("Escribir edad: ");
                     a = input.nextInt();
-                    fit.setAge(a);
+                    f.setAge(a);
                     break;
                 case 5:
-                    System.out.println("Adios!!");
-                    fit.actualizar_fit();
+                    f.setAge(f.getAge() + input.nextInt());
+                    break;
+                case 6:
+                    System.out.println("Salir");
+                    f.actualizar_fit();
                     break;
                 default:
                     System.out.println("Valor incorrecto");
