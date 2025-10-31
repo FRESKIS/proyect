@@ -7,8 +7,6 @@ public class main {
     public static void main(String[] args) throws IOException {
 
         int inp = 0;
-        String s;
-        int a;
 
         fit f = new fit();
         f.initFit();
@@ -17,11 +15,9 @@ public class main {
 
         while (inp != 6) {
 
-            s = "";
-            a = -1;
-
             System.out.println("1. Leer nombre \n 2. Leer edad \n 3. Escribir nombre \n 4. Escribir edad \n 5. sumar edad \n 6. Salir");
             inp = input.nextInt();
+            input.nextLine();
 
             switch (inp) {
                 case 1:
@@ -32,18 +28,16 @@ public class main {
                     break;
                 case 3:
                     System.out.println("Escribir nombre: ");
-                    while (s.equals("")) {
-                        s = input.nextLine();
-                    }
-                    f.setName(s);
+                    f.setName(input.nextLine());
                     break;
                 case 4:
                     System.out.println("Escribir edad: ");
-                    a = input.nextInt();
-                    f.setAge(a);
+                    f.setAge(input.nextInt());
+                    input.nextLine();
                     break;
                 case 5:
                     f.setAge(f.getAge() + input.nextInt());
+                    input.nextLine();
                     break;
                 case 6:
                     System.out.println("Salir");
@@ -55,4 +49,5 @@ public class main {
             }
         }
     }
+
 }
